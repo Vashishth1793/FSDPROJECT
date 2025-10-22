@@ -1,7 +1,7 @@
 import React from 'react';
-import { Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-import TopNav from './context/AuthContext';
+import TopNav from './components/TopNav';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -16,7 +16,6 @@ import AdminUsers from './pages/Admin/Users';
 export default function App(){
 return (
 <AuthProvider>
-<Router>
 <div className="min-h-screen bg-gray-50">
 <TopNav />
 <Routes>
@@ -36,7 +35,6 @@ return (
 <Route path="/admin/users" element={<ProtectedRoute roles={["admin"]}><AdminUsers/></ProtectedRoute>} />
 </Routes>
 </div>
-</Router>
 </AuthProvider>
 );
 }
